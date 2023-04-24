@@ -7,29 +7,100 @@
     <title>Góp ý</title>
 </head>
 <body>
-    <marquee width="100%" behavior="alternate" bgcolor=" #0099FF">  
-        Nhập thông tin đóng góp ý kiến
-    </marquee>
-    <table border="1" cellspacing="0" cellpadding="5">
+    <div cellspacing="0">
+
+    <table border="1" cellspacing="0" cellpadding="5" width="100%">
         <form name="gopY" method="post" action="">
+                <tr>
+                    <td colspan="2" bgcolor="#0099FF" style="color: aliceblue;"> <b>Nhập thông tin góp ý</b></td>
+                </tr>
+       
             <tr>
-                <td>Chủ đề</td>
+                <td><b>Chủ đề</b></td>
                 <td>
                     <select name="chuDe" id="chuDe">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-
-
-                    </select>
+                        <option value="1">Gớp ý về dịch vụ</option>
+                        <option value="2">Gớp ý về website</option>
+                        <option value="3">Gớp ý về sản phẩm</option>
+                        <option value="4">Gớp ý khác</option>
+                        </select> <label id="lblBatBuoc" style="color: red;">*</label>
                 </td>
             </tr>
-
+            <!-- name -->
+            <tr>
+                <td> <b>Họ và Tên</b></td>
+                <td> 
+                    <input type="text" name="txtName" id="txtName" maxlength="100" placeholder="Nhập Họ và">
+                    <label id="lblBatBuoc" style="color: red;">*</label>
+                </td>
+            </tr>
+            <!-- local -->
+            <tr>
+                <td> <b>Địa chỉ</b></td>
+                <td> 
+                    <input type="text" name="txtLocal" id="txtLocal" maxlength="100" placeholder="Nhập địa chỉ của bạn">
+                    <label id="lblBatBuoc" style="color: red;">*</label>
+                </td>
+            </tr>
+            <!-- phone -->
+            <tr>
+                <td> <b>Điện thoại</b></td>
+                <td>
+                    <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" placeholder="Nhập số điện thoại của bạn">
+                    <label id="lblBatBuoc" style="color: red;">*</label>
+                </td>
+            </tr>
+            <!-- email -->
+            <tr>
+                <td> <b>Email</b></td>
+                <td>
+                    <input type="email" name="txtEmail" id="txtEmail" maxlength="50" placeholder="Nhập email của bạn" >
+                    <label id="lblBatBuoc" style="color: red;">*</label>
+                </td>
+            </tr>
+            <!-- chọn -->
+            <tr>
+                <td> <b>Bạn biết đến web qua</b></td>
+                <td> 
+                    <input type="checkbox" name="txtBaoChi" id="txtBaoChi"> 
+                    <label id="txtBaoChi"> Báo chí </label>
+                    <label id="lblBatBuoc" style="color: red;">*</label> <br>
+                    <input type="checkbox" name="txtI" id="txtI" > 
+                    <label id="txtI"> Internet </label>
+                    <label id="lblBatBuoc" style="color: red;">*</label> <br>
+                    <input type="checkbox" name="txtTruyenMieng" id="txtTruyenMieng" > 
+                    <label id="txtTruyenMieng"> Truyền miệng </label>
+                    <label id="lblBatBuoc" style="color: red;">*</label> <br>
+                    <input type="checkbox" name="txtOther" id="txtOther" > 
+                    <label id="txtOther"> Khác </label>
+                    <label id="lblBatBuoc" style="color: red;">*</label> <br>
+                </td>
+            </tr>
+            <!-- chọn 1 in 2 -->
+            <tr>
+                <td> <b>Giao dịch trên web </b></td> 
+                <td>
+                    <input type="radio" name="Chon" id="Chon" value="1"> Có
+                    <input type="radio" name="Chon" id="Chon" value="0"> Chưa
+                </td>
+            </tr>
+            <!-- nội dung -->
+            <tr>
+                <td> <b>Nội dung </b> </td>
+                <td >
+                    <textarea name="txtND" type="text" id="txtND" cols="20" rows="7"> </textarea>       
+                    <label id="lblBatBuoc" style="color: red;">*</label>
+                </td>
+            </tr>
+            <!-- button -->
+            <tr>
+                <td colspan="2"  align="center">
+                    <input type="submit" name="btnSend" id="tbnSend" style="color: #0099FF;" value="Gửi">
+                    <input type="reset" name="rsNhap" id="rsNhap" style="color: #0099FF;" value="Nhập lại">
+                </td>
+            </tr>
         </form>
     </table>
-
+    </div>
 </body>
 </html>
