@@ -8,9 +8,8 @@
 </head>
 <body>
     <div cellspacing="0">
-
+    <form name="gopY" method="post" action="">
     <table border="1" cellspacing="0" cellpadding="5" width="100%">
-        <form name="gopY" method="post" action="">
                 <tr>
                     <td colspan="2" bgcolor="#0099FF" style="color: aliceblue;"> <b>Nhập thông tin góp ý</b></td>
                 </tr>
@@ -28,15 +27,15 @@
             </tr>
             <!-- name -->
             <tr>
-                <td> <b>Họ và Tên</b></td>
+                <td> <label for="txtName"><b>Họ và Tên</b></label></td>
                 <td> 
-                    <input type="text" name="txtName" id="txtName" maxlength="100" placeholder="Nhập Họ và Tên ">
+                    <input type="text" name="txtName" id="txtName" maxlength="100" placeholder="Nhập Họ và Tên " autofocus >
                     <label id="lblBatBuoc" style="color: red;">*</label>
                 </td>
             </tr>
             <!-- local -->
             <tr>
-                <td> <b>Địa chỉ</b></td>
+                <td> <label for="txtLocal"><b>Địa chỉ</b></label></td>
                 <td> 
                     <input type="text" name="txtLocal" id="txtLocal" maxlength="100" placeholder="Nhập địa chỉ của bạn">
                     <label id="lblBatBuoc" style="color: red;">*</label>
@@ -44,7 +43,7 @@
             </tr>
             <!-- phone -->
             <tr>
-                <td> <b>Điện thoại</b></td>
+                <td><label for="phone"><b>Điện thoại</b></label></td>
                 <td>
                     <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" placeholder="Nhập số điện thoại của bạn">
                     <label id="lblBatBuoc" style="color: red;">*</label>
@@ -52,7 +51,7 @@
             </tr>
             <!-- email -->
             <tr>
-                <td> <b>Email</b></td>
+                <td> <label for="txtEmail"><b>Email</b></label></td>
                 <td>
                     <input type="email" name="txtEmail" id="txtEmail" maxlength="50" placeholder="Nhập Email của bạn" >
                     <label id="lblBatBuoc" style="color: red;">*</label>
@@ -60,35 +59,35 @@
             </tr>
             <!-- chọn -->
             <tr>
-                <td> <b>Bạn biết đến web qua</b></td>
+                <td> <b>Bạn biết đến web qua</b>
+                    <label for="lblBatBuoc" style="color: red;">*</label> <br>
+                </td>
                 <td> 
                     <input type="checkbox" name="txtBaoChi" id="txtBaoChi"> 
-                    <label id="txtBaoChi"> Báo chí </label>
-                    <label id="lblBatBuoc" style="color: red;">*</label> <br>
+                    <label for="txtBaoChi"> Báo chí </label> <br>
                     <input type="checkbox" name="txtI" id="txtI" > 
-                    <label id="txtI"> Internet </label>
-                    <label id="lblBatBuoc" style="color: red;">*</label> <br>
+                    <label for="txtI"> Internet </label> <br>
                     <input type="checkbox" name="txtTruyenMieng" id="txtTruyenMieng" > 
-                    <label id="txtTruyenMieng"> Truyền miệng </label>
-                    <label id="lblBatBuoc" style="color: red;">*</label> <br>
+                    <label for="txtTruyenMieng"> Truyền miệng </label><br>
                     <input type="checkbox" name="txtOther" id="txtOther" > 
-                    <label id="txtOther"> Khác </label>
-                    <label id="lblBatBuoc" style="color: red;">*</label> <br>
+                    <label for="txtOther"> Khác </label> <br>          
                 </td>
             </tr>
             <!-- chọn 1 in 2 -->
             <tr>
                 <td> <b>Giao dịch trên web </b></td> 
                 <td>
-                    <input type="radio" name="Chon" id="Chon" value="1"> Có
-                    <input type="radio" name="Chon" id="Chon" value="0"> Chưa
+                    <input type="radio" name="Chon" id="Chon" value="1">
+                    <label for="Chon"> Có</label> 
+                    <input type="radio" name="Chon" id="Chon" value="0"> 
+                    <label for="Chon">Chưa</label>
                 </td>
             </tr>
             <!-- nội dung -->
             <tr>
                 <td> <b>Nội dung </b> </td>
                 <td >
-                    <textarea name="txtND" type="text" id="txtND" cols="20" rows="7"> </textarea>       
+                    <textarea name="txtND" type="text" id="txtND" cols="50x" rows="7"> </textarea>       
                     <label id="lblBatBuoc" style="color: red;">*</label>
                 </td>
             </tr>
@@ -102,9 +101,8 @@
                     <input type="reset" name="rsNhap" id="rsNhap" style="color: #0099FF;" value="Nhập lại">
                 </td>
             </tr>
-         
-        </form>
     </table>
+</form>
     </div>
 </body>
 </html>
