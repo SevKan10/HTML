@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chỉnh kết quả tài xỉu</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Chỉnh kết quả tài xỉu</h1>
+  
+  <div>
+    <label for="result">Kết quả:</label>
+    <input type="number" id="result" min="3" max="18" required>
+    <button id="submitBtn">Xác nhận</button>
+  </div>
+  
+  <div id="outputDiv">
+    <h3>Kết quả hiện tại:</h3>
+    <p id="currentResult">-</p>
+  </div>
+  
+  <script>
+    $(document).ready(function() {
+      // Hiển thị kết quả hiện tại từ server
+      getCurrentResult();
+
+      // Xử lý khi người dùng click vào nút Xác nhận
+      $('#submitBtn').click(function() {
+        var newResult = parseInt($('#result').val());
+        updateResult(newResult);
+      });
+    });
+
+    // Hàm gửi yêu cầu lấy kết quả hiện tại từ server
+    function getCurrentResult() {
+      // Thực hiện yêu cầu AJAX
+      $.ajax({
+        url: '/api/getCurrentResult', // Đường dẫn tới API lấy kết quả hiện tại
+        method: 'GET',
+        success: function(response) {
+          $('#currentResult').text(response.result);
+        },
+        error: function(error) {
+          console.log('Lỗi:', error);
+        }
+      });
+    }
+
+    // Hàm gửi yêu cầu cập nhật kết quả tới server
+    function updateResult(newResult) {
+      // Thực hiện yêu cầu AJAX
+      $.ajax({
+        url: '/api/updateResult', // Đường dẫn tới API cập nhật kết quả
+        method: 'POST',
+        data: { result: newResult },
+        success: function(response) {
+          $('#currentResult').text(response.result);
+          $('#result').val('');
+        },
+        error: function(error) {
+          console.log('Lỗi:', error);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

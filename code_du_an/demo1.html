@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web bán hàng điện tử</title>
+    <style>
+        /* CSS cho giao diện */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav li a:hover {
+            background-color: #ddd;
+        }
+
+        section {
+            margin: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trang web bán hàng điện tử</h1>
+
+    <nav>
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Sản phẩm</a></li>
+            <li><a href="#">Giỏ hàng</a></li>
+            <li><a href="#">Liên hệ</a></li>
+            <li><a href="#">Cửa hàng 1</a></li>
+            <li><a href="#">Cửa hàng 2</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Sản phẩm</h2>
+        <ul>
+            <li>
+                <h3>Sản phẩm 1</h3>
+                <p>Mô tả sản phẩm 1.</p>
+                <a href="#">Thêm vào giỏ hàng</a>
+            </li>
+            <li>
+                <h3>Sản phẩm 2</h3>
+                <p>Mô tả sản phẩm 2.</p>
+                <a href="#">Thêm vào giỏ hàng</a>
+            </li>
+            <li>
+                <h3>Sản phẩm 3</h3>
+                <p>Mô tả sản phẩm 3.</p>
+                <a href="#">Thêm vào giỏ hàng</a>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Liên hệ</h2>
+        <p>Thông tin liên hệ.</p>
+    </section>
+
+    <footer>
+        <p>Bản quyền © 2023 Công ty ABC</p>
+    </footer>
+
+    <script>
+        // JavaScript cho chức năng nâng cao
+        var addToCartButtons = document.querySelectorAll('a[href="#"]');
+        addToCartButtons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Thực hiện thêm sản phẩm vào giỏ hàng
+                console.log('Sản phẩm đã được thêm vào giỏ hàng.');
+            });
+        });
+    </script>
+</body>
+</html>
