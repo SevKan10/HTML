@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flappy Bird</title>
+    <style>
+        #game-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        #bird {
+            position: absolute;
+            left: 50px;
+            top: 180px;
+            width: 40px;
+            height: 30px;
+            background-color: red;
+        }
+        .pipe {
+            position: absolute;
+            width: 50px;
+            bottom: 0;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flappy Bird</h1>
+    <div id="game-container">
+        <div id="bird"></div>
+    </div>
+    <script>
+        var bird = document.getElementById("bird");
+        var gameContainer = document.getElementById("game-container");
+        var gravity = 0.2;
+        var velocity = 0;
+        var pipes = [];
+        var gapHeight = 150;
+        var pipeWidth = 50;
+        var pipeSpeed = 2;
+        var pipeInterval = 1500;
+        var score = 0;
+        
+        function jump() {
+            velocity -= 5;
+        }
+        
+        function generatePipe() {
+            var pipeHeight = Math.floor(Math.random() * (gameContainer.offsetHeight - gapHeight));
+            var pipeUpper = document.createElement("div");
+            var pipeLower = document.createElement("div");
+            pipeUpper.className = "pipe";
+            pipeLower.className = "pipe";
+            pipeUpper.style.height = pipeHeight + "px";
+            pipeLower.style.height = (gameContainer.offsetHeight - pipeHeight - gapHeight) + "px";
+            pipeUpper.style.left = gameContainer.offsetWidth + "px";
+            pipeLower.style.left = gameContainer.offsetWidth + "px";
+            gameContainer.appendChild(pipeUpper);
+            gameContainer.appendChild(pipeLower);
+            pipes.push({ upper: pipeUpper, lower: pipeLower });
+        }
+        
+        function updatePipes() {
+            for (var i = 0; i < pipes.length; i++) {
+                var pipe = pipes[i];
+                var pipeX = parseInt(pipe.upper.style.left);
+                pipeX -= pipeSpeed;
+                pipe.upper.style.left = pipeX + "px";
+                pipe.lower.style.left = pipeX + "px";
+                
+                if (pipeX + pipeWidth < 0) {
+                    gameContainer.removeChild(pipe.upper);
+                    gameContainer.removeChild(pipe.lower);
+                    pipes.splice(i, 1);
+                    i--;
+                }
+                
+                if (pipeX + pipeWidth == bird.offsetLeft) {
+                    score++;
+                }
+                
+                if (pipeX < bird.offsetLeft + bird.offsetWidth && pipeX + pipeWidth > bird.offsetLeft &&
+                    (bird.offsetTop < pipe.upper.offsetHeight || bird.offsetTop + bird.offsetHeight > gameContainer.offsetHeight - pipe.lower.offsetHeight)) {
+                    gameOver();
+                }
+            }
+        }
+        
+        function updateBird() {
+            velocity += gravity;
+            var birdTop = bird.offsetTop + velocity;
+            if (birdTop < 0) {
+                birdTop = 0;
+            }
+            if (birdTop + bird.offsetHeight > gameContainer.offsetHeight) {
+                gameOver();
+            }
+            bird.style.top = birdTop + "px";
+        }
+        
+        function updateScore() {
+            document.getElementById("score").innerHTML = "Score: " + score;
+        }
+        
+        function gameOver()
