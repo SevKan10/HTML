@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập máy tính</title>
+</head>
+<body>
+    <script>
+        let a= parseInt(prompt("Hãy nhập số bạn muốn tính1: "))
+        let b= parseInt(prompt("Hãy nhập số bạn muốn tính2: "))
+         let c= parseInt(prompt("Hãy chọn dạng bài toán (+=1 , -=2, x=3, :=4)"))
+        console.log(a );
+        console.log(b );
+        console.log(c);
+
+
+          function chuongTrinhTinh(){
+                switch(c){
+                    case 1 :
+                        
+                        document.write(a+b);
+                        break;
+                    case 2 :
+                        document.write(a-b);
+                        break;
+                    case 3 :
+                        document.write(a*b);
+                        break;
+                    case 4 :
+                        if (b==0){
+                            alert("Dạng toán không hợp lệ!");
+                        }
+                        else{
+
+                            document.write(a/b);
+                        }
+                        break;
+
+                }
+          }
+          chuongTrinhTinh();
+    </script>
+</body>
+</html>
