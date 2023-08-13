@@ -9,6 +9,21 @@
         body{
             background-image: url('https://mygarden.vn/wp-content/uploads/2020/09/dat-gi-trong-cay-tot-nhat-1.jpg');
         }
+        .send{
+            border-radius: 25px;
+            background: lightblue;
+            padding: 5px;
+            width: 90px;
+            height: 30px;
+        }
+        .re{
+            border-radius: 25px;
+            background: orange;
+            padding: 5px;
+            width: 90px;
+            height: 30px;
+        }
+        
     </style>
 </head>
 <body>
@@ -92,8 +107,8 @@
         <label for="chAcpt">
             <input type="checkbox" name="chAcpt" id="chAcpt"/> You agree to enter informationn </p> <br>
         </label>
-    <button onclick="checkDangky()">Send data</button>
-    <button type="button" onclick="tai_lai_trang()">Retype</button>
+    <button class="send"onclick="checkDangky()">Send data</button>
+    <button class="re" type="button" onclick="tai_lai_trang()">Retype</button>
 
 
     <div id="ketqua"></div>
